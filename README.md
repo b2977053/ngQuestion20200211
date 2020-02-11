@@ -21,6 +21,10 @@ content.component.ts  第30行
 
 content.component.html  第20行
 
+---
 
+已解決，我去改該套件(application.js) 讓他可以接受JSON。
+
+程式碼在上面:application.js
 
 
