@@ -17,9 +17,9 @@
 
 程式碼在上面:
 
-content.component.ts
+content.component.ts  第30行
 
-content.component.html
+content.component.html  第20行
 
 
 
