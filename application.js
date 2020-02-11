@@ -152,10 +152,55 @@ $(function () {
     doughnut: function (element) {
       var attrData = $.extend({}, $(element).data())
 
-      var data        = attrData.dataset        ? eval(attrData.dataset) : {}
-      var dataOptions = attrData.datasetOptions ? eval('(' + attrData.datasetOptions + ')') : {}
-      var labels      = attrData.labels         ? eval(attrData.labels) : {}
-      var options     = attrData.options        ? eval('(' + attrData.options + ')') : {}
+      var data = {};
+      if (attrData.dataset) {
+          if (typeof attrData.dataset === 'string') {
+              try {
+                  data = JSON.parse(attrData.dataset);
+              } catch (err) {
+                  data = eval('(' + attrData.dataset + ')');
+              }
+          } else {
+              data = attrData.dataset
+          }
+      }
+      var dataOptions = {};
+      if (attrData.datasetOptions) {
+          if (typeof attrData.datasetOptions === 'string') {
+              try {
+                  dataOptions = JSON.parse(attrData.datasetOptions);
+              } catch (err) {
+                  dataOptions = eval('(' + attrData.datasetOptions + ')');
+              }
+          } else {
+              dataOptions = attrData.datasetOptions
+          }
+      }
+
+      var labels = {};
+      if (attrData.labels) {
+          if (typeof attrData.labels === 'string') {
+              try {
+                  labels = JSON.parse(attrData.labels);
+              } catch (err) {
+                  labels = eval('(' + attrData.labels + ')');
+              }
+          } else {
+              labels = attrData.labels
+          }
+      }
+      var options = {};
+      if (attrData.options) {
+          if (typeof attrData.options === 'string') {
+              try {
+                  options = JSON.parse(attrData.options);
+              } catch (err) {
+                  options = eval('(' + attrData.options + ')');
+              }
+          } else {
+              options = attrData.options
+          }
+      }
 
       Charts._cleanAttr(attrData)
 
